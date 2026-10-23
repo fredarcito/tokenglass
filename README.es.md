@@ -196,7 +196,7 @@ Variables de entorno:
 
 | Variable | Qué hace |
 | --- | --- |
-| `PORT` | Puerto en el que escuchar (por defecto 3000). Si está ocupado, se usa el siguiente libre. |
+| `PORT` | Puerto en el que escuchar (por defecto 4747). Si está ocupado, se usa el siguiente libre. |
 | `CLAUDE_DATA_DIR` | Carpeta con los datos de Claude Code. `--data` tiene prioridad sobre ella. |
 | `CLAUDE_TOKEN_DASHBOARD_HOME` | Usa otra carpeta en lugar de `~/.claude-token-dashboard` (útil para pruebas). |
 

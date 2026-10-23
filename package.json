@@ -1,6 +1,6 @@
 {
   "name": "tokenglass",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Local dashboard to analyze your Claude Code token usage and spot the habits that waste it. / Dashboard local para analizar tu consumo de tokens en Claude Code.",
   "license": "MIT",
   "private": false,

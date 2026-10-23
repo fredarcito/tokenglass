@@ -196,7 +196,7 @@ Environment variables:
 
 | Variable | What it does |
 | --- | --- |
-| `PORT` | Port to listen on (default 3000). If it is busy, the next free port is used. |
+| `PORT` | Port to listen on (default 4747). If it is busy, the next free port is used. |
 | `CLAUDE_DATA_DIR` | Folder with Claude Code's data. `--data` takes priority over it. |
 | `CLAUDE_TOKEN_DASHBOARD_HOME` | Use another folder instead of `~/.claude-token-dashboard` (useful for tests). |
 

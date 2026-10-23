@@ -13,7 +13,7 @@ const i18n = require('./i18n');
 const parser = require('./parser');
 const pkg = require('../package.json');
 
-const DEFAULT_PORT = 3000;
+const DEFAULT_PORT = 4747;
 
 /** PORT environment variable as a number, or an error value. */
 function readPort(env) {
@@ -91,7 +91,7 @@ async function main(args) {
   }
 
   if (running.port !== running.requestedPort) {
-    console.log(t('cli.portBusy', { requested: running.requestedPort, port: running.port }));
+    console.log(t('cli.portBusy', { requested: String(running.requestedPort), port: String(running.port) }));
   }
   console.log(t('cli.dashboardUrl', { url: running.url }));
   console.log(t('cli.stop'));
