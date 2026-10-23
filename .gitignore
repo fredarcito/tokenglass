@@ -1,0 +1,22 @@
+# Dependencies and logs
+node_modules/
+npm-debug.log*
+
+# Real Claude Code transcripts must never be committed.
+# Only the made-up files in example/ are allowed.
+*.jsonl
+!example/**/*.jsonl
+
+# Saved history and local configuration
+history.json
+history*.json
+config.json
+*.local.json
+.env
+.env.*
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
