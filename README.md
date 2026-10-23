@@ -1,6 +1,6 @@
 [Leer en español](README.es.md)
 
-# TokenScope · Claude Code Token Dashboard
+# TokenScope · Claude Code token dashboard
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/node-%E2%89%A518-3c873a.svg)](https://nodejs.org)
@@ -40,6 +40,21 @@ Filter by range (last 7 days, 30 days or all time), by dates and by project, and
 
 ## Install
 
+The fastest way, without cloning anything:
+
+```bash
+npx tokenscope
+```
+
+Or install it globally so the command is always available:
+
+```bash
+npm install -g tokenscope
+tokenscope
+```
+
+If you prefer the source code:
+
 ```bash
 git clone https://github.com/fredarcito/tokenscope.git
 cd tokenscope
@@ -48,7 +63,7 @@ npm start
 
 That is all: there is nothing else to install.
 
-You can also run it without cloning:
+You can also run it straight from GitHub, without going through npm:
 
 ```bash
 npx github:fredarcito/tokenscope
@@ -60,12 +75,12 @@ Use these three commands, in this order, the first time:
 
 ```
 npm run example
-npm run parser-check
+npm run check
 npm start
 ```
 
 1. **`npm run example`** opens the dashboard with made-up data, so you can see what everything looks like before touching your own files.
-2. **`npm run parser-check`** reads your real Claude Code files and prints a report that tells you whether the tool understands them. Claude Code's file format is not officially documented and can change between versions, so this is worth doing once. The report contains only counts and field names, so you can paste it into an issue.
+2. **`npm run check`** reads your real Claude Code files and prints a report that tells you whether the tool understands them. Claude Code's file format is not officially documented and can change between versions, so this is worth doing once. The report contains only counts and field names, so you can paste it into an issue.
 3. **`npm start`** opens the dashboard with your own data.
 
 Everything the dashboard shows is read again each time you reload the page.
@@ -175,7 +190,7 @@ You normally only need the three npm commands above. They call `bin/cli.js`, whi
 | `--no-open` | Do not open the browser automatically. |
 | `--help`, `--version` | Show help or the version. |
 
-Pass arguments through npm after `--`, for example `npm run parser-check -- --lang es`, or call the file directly: `node bin/cli.js --data ./my-copy`.
+Pass arguments through npm after `--`, for example `npm run check -- --lang es`, or call the file directly: `node bin/cli.js --data ./my-copy`.
 
 Environment variables:
 
@@ -189,7 +204,7 @@ Where the data is read from by default: `~/.claude/projects` on Mac and Linux, `
 
 Terminal language: `--lang`, then `"lang"` in `config.json`, then your system language (`LC_ALL`, `LC_MESSAGES`, `LANG`, or the system locale). Dashboard language: your last choice (saved in the browser), then `"lang"` in `config.json`, then the browser language (Spanish if it starts with `es`, English otherwise).
 
-If Claude Code's file format changes, `npm run parser-check` tells you which function of `src/parser.js` to review.
+If Claude Code's file format changes, `npm run check` tells you which function of `src/parser.js` to review.
 
 ### Project layout
 
@@ -202,7 +217,7 @@ src/diagnostics.js  detects the problems
 src/history.js      saved history
 src/data.js         builds the data the dashboard receives
 src/config.js       default thresholds, paths and path guard
-src/check.js        npm run parser-check
+src/check.js        npm run check
 src/i18n/           translations (en.json, es.json) and helper
 public/index.html   the dashboard (CSS and JS inside)
 example/            made-up .jsonl files
@@ -220,11 +235,11 @@ The dashboard shows a button for each language and the terminal picks it up from
 
 Issues and pull requests are welcome.
 
-- Run `npm run example` and `npm run parser-check -- --data example` before you open a pull request.
+- Run `npm run example` and `npm run check -- --data example` before you open a pull request.
 - Keep the project free of npm dependencies.
 - Every visible text must exist in both `src/i18n/en.json` and `src/i18n/es.json` with the same keys. Never write user-facing text directly in the code.
 - Never add real transcripts to the repository. Extend the files in `example/` with made-up data instead.
-- If Claude Code changes its file format, open an issue with the output of `npm run parser-check` (it is safe to share).
+- If Claude Code changes its file format, open an issue with the output of `npm run check` (it is safe to share).
 
 ## License
 

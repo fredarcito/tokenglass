@@ -1439,7 +1439,7 @@ function periodOf(v) {
 function buildExport(v) {
   const period = periodOf(v);
   return {
-    app: 'claude-token-dashboard',
+    app: 'tokenscope',
     version: S.data.meta.version,
     generatedAt: new Date().toISOString(),
     exampleData: Boolean(S.data.meta.example),

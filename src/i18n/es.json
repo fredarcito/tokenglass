@@ -3,7 +3,7 @@
   "lang.en": "EN",
   "lang.es": "ES",
 
-  "app.title": "Dashboard de tokens de Claude Code",
+  "app.title": "TokenScope",
   "app.tagline": "Claude Code · todo se ejecuta en tu máquina",
 
   "theme.toggle": "Cambiar entre tema automático, claro y oscuro",
@@ -162,7 +162,7 @@
   "empty.tryExample": "Para ver cómo se ve el dashboard, ejecuta npm run example.",
   "empty.filters": "No hay consumo con los filtros seleccionados. Prueba con un rango de fechas más amplio u otro proyecto.",
 
-  "cli.title": "Dashboard de tokens de Claude Code v{version}",
+  "cli.title": "TokenScope v{version}",
   "cli.example": "Usando datos de ejemplo (inventados). No se lee ni se escribe nada en tu carpeta de Claude Code y no se guarda historial.",
   "cli.reading": "Leyendo los datos de Claude Code de: {dir}",
   "cli.dataMissing": "La carpeta de datos no existe: {dir}. Define CLAUDE_DATA_DIR, usa --data <ruta> o prueba npm run example.",
@@ -175,12 +175,12 @@
   "cli.browserFailed": "No se pudo abrir el navegador automáticamente. Abre tú este enlace: {url}",
   "cli.shutdown": "Cerrando.",
   "cli.fatal": "Error inesperado: {message}",
-  "cli.nodeTooOld": "El dashboard de tokens de Claude Code necesita Node.js {required} o superior, y estás usando {found}. Actualiza Node.js e inténtalo de nuevo.",
+  "cli.nodeTooOld": "TokenScope necesita Node.js {required} o superior, y estás usando {found}. Actualiza Node.js e inténtalo de nuevo.",
   "cli.missingValue": "El argumento {arg} necesita un valor.",
   "cli.badLang": "El valor de --lang debe ser uno de: {langs}. Valor recibido: {value}",
   "cli.unknownArg": "Argumento desconocido: {arg}",
   "cli.helpHint": "Ejecuta con --help para ver las opciones disponibles.",
-  "cli.help": "Dashboard de tokens de Claude Code\n\nComandos:\n  npm run example   Dashboard con datos de ejemplo inventados\n  npm run check     Comprueba que la herramienta entiende tus archivos\n  npm start         Dashboard con tus datos reales\n\nOpciones avanzadas (bin/cli.js):\n  --example         Usa los archivos inventados de example/\n  --check           Imprime el informe del parser y termina\n  --data <ruta>     Lee los .jsonl de esta carpeta\n  --lang <es|en>    Idioma de la salida de la terminal\n  --no-open         No abre el navegador automáticamente\n  --help, -h        Muestra esta ayuda\n  --version, -v     Muestra la versión\n\nVariables de entorno:\n  PORT              Puerto en el que escuchar (por defecto 3000)\n  CLAUDE_DATA_DIR   Carpeta con los datos de Claude Code",
+  "cli.help": "TokenScope · Dashboard de tokens de Claude Code\n\nComandos:\n  npm run example   Dashboard con datos de ejemplo inventados\n  npm run check     Comprueba que la herramienta entiende tus archivos\n  npm start         Dashboard con tus datos reales\n\nOpciones avanzadas (bin/cli.js):\n  --example         Usa los archivos inventados de example/\n  --check           Imprime el informe del parser y termina\n  --data <ruta>     Lee los .jsonl de esta carpeta\n  --lang <es|en>    Idioma de la salida de la terminal\n  --no-open         No abre el navegador automáticamente\n  --help, -h        Muestra esta ayuda\n  --version, -v     Muestra la versión\n\nVariables de entorno:\n  PORT              Puerto en el que escuchar (por defecto 3000)\n  CLAUDE_DATA_DIR   Carpeta con los datos de Claude Code",
 
   "check.title": "Verificación del parser",
   "check.safeNote": "Este informe solo contiene recuentos y nombres de campos, así que es seguro compartirlo.",

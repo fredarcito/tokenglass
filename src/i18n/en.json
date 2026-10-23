@@ -3,7 +3,7 @@
   "lang.en": "EN",
   "lang.es": "ES",
 
-  "app.title": "Claude Code Token Dashboard",
+  "app.title": "TokenScope",
   "app.tagline": "Claude Code · everything runs on your machine",
 
   "theme.toggle": "Switch between automatic, light and dark theme",
@@ -162,7 +162,7 @@
   "empty.tryExample": "To see how the dashboard looks, run npm run example.",
   "empty.filters": "There is no usage for the selected filters. Try a wider date range or another project.",
 
-  "cli.title": "Claude Code Token Dashboard v{version}",
+  "cli.title": "TokenScope v{version}",
   "cli.example": "Using example data (made up). Nothing is read from or written to your Claude Code folder, and no history is saved.",
   "cli.reading": "Reading Claude Code data from: {dir}",
   "cli.dataMissing": "The data folder does not exist: {dir}. Set CLAUDE_DATA_DIR, use --data <path>, or try npm run example.",
@@ -175,12 +175,12 @@
   "cli.browserFailed": "Could not open the browser automatically. Open this link yourself: {url}",
   "cli.shutdown": "Shutting down.",
   "cli.fatal": "Unexpected error: {message}",
-  "cli.nodeTooOld": "Claude Code Token Dashboard needs Node.js {required} or newer, and you are running {found}. Update Node.js and try again.",
+  "cli.nodeTooOld": "TokenScope needs Node.js {required} or newer, and you are running {found}. Update Node.js and try again.",
   "cli.missingValue": "The argument {arg} needs a value.",
   "cli.badLang": "The value of --lang must be one of: {langs}. Received: {value}",
   "cli.unknownArg": "Unknown argument: {arg}",
   "cli.helpHint": "Run with --help to see the available options.",
-  "cli.help": "Claude Code Token Dashboard\n\nCommands:\n  npm run example   Dashboard with made-up example data\n  npm run check     Check that the tool understands your files\n  npm start         Dashboard with your real data\n\nAdvanced options (bin/cli.js):\n  --example         Use the made-up files in example/\n  --check           Print the parser report and exit\n  --data <path>     Read .jsonl files from this folder\n  --lang <es|en>    Language of the terminal output\n  --no-open         Do not open the browser automatically\n  --help, -h        Show this help\n  --version, -v     Show the version\n\nEnvironment variables:\n  PORT              Port to listen on (default 3000)\n  CLAUDE_DATA_DIR   Folder with the Claude Code data",
+  "cli.help": "TokenScope · Claude Code token dashboard\n\nCommands:\n  npm run example   Dashboard with made-up example data\n  npm run check     Check that the tool understands your files\n  npm start         Dashboard with your real data\n\nAdvanced options (bin/cli.js):\n  --example         Use the made-up files in example/\n  --check           Print the parser report and exit\n  --data <path>     Read .jsonl files from this folder\n  --lang <es|en>    Language of the terminal output\n  --no-open         Do not open the browser automatically\n  --help, -h        Show this help\n  --version, -v     Show the version\n\nEnvironment variables:\n  PORT              Port to listen on (default 3000)\n  CLAUDE_DATA_DIR   Folder with the Claude Code data",
 
   "check.title": "Parser check",
   "check.safeNote": "This report only contains counts and field names, so it is safe to share.",
