@@ -1,11 +1,11 @@
 {
-  "name": "tokenscope",
+  "name": "tokenglass",
   "version": "0.1.0",
   "description": "Local dashboard to analyze your Claude Code token usage and spot the habits that waste it. / Dashboard local para analizar tu consumo de tokens en Claude Code.",
   "license": "MIT",
   "private": false,
   "bin": {
-    "tokenscope": "bin/cli.js"
+    "tokenglass": "bin/cli.js"
   },
   "files": [
     "bin/",
@@ -19,11 +19,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fredarcito/tokenscope.git"
+    "url": "git+https://github.com/fredarcito/tokenglass.git"
   },
-  "homepage": "https://github.com/fredarcito/tokenscope#readme",
+  "homepage": "https://github.com/fredarcito/tokenglass#readme",
   "bugs": {
-    "url": "https://github.com/fredarcito/tokenscope/issues"
+    "url": "https://github.com/fredarcito/tokenglass/issues"
   },
   "scripts": {
     "start": "node bin/cli.js",
@@ -44,5 +44,8 @@
     "anthropic",
     "usage",
     "cache"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }

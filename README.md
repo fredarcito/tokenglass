@@ -1,13 +1,13 @@
 [Leer en español](README.es.md)
 
-# TokenScope · Claude Code token dashboard
+# TokenGlass · Claude Code token dashboard
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/node-%E2%89%A518-3c873a.svg)](https://nodejs.org)
 [![Zero dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg)](package.json)
 [![100% local](https://img.shields.io/badge/data-100%25%20local-4f46e5.svg)](#what-it-does-and-doesnt-do-with-your-data)
 
-**TokenScope** is a local, dependency-free, open source dashboard that shows **where your Claude Code tokens go** and points out the habits that waste them: sessions that run too long, caches lost after a pause, huge tool results, an expensive model used for simple tasks, and subagent usage.
+**TokenGlass** is a local, dependency-free, open source dashboard that shows **where your Claude Code tokens go** and points out the habits that waste them: sessions that run too long, caches lost after a pause, huge tool results, an expensive model used for simple tasks, and subagent usage.
 
 It reads the files Claude Code already keeps on your computer and serves a dashboard on your own machine. **Nothing leaves your computer.** There is no account, no upload and no telemetry.
 
@@ -43,21 +43,21 @@ Filter by range (last 7 days, 30 days or all time), by dates and by project, and
 The fastest way, without cloning anything:
 
 ```bash
-npx tokenscope
+npx tokenglass
 ```
 
-Or install it globally so the command is always available:
+Or install it globally so the `tokenglass` command is always available:
 
 ```bash
-npm install -g tokenscope
-tokenscope
+npm install -g tokenglass
+tokenglass
 ```
 
 If you prefer the source code:
 
 ```bash
-git clone https://github.com/fredarcito/tokenscope.git
-cd tokenscope
+git clone https://github.com/fredarcito/tokenglass.git
+cd tokenglass
 npm start
 ```
 
@@ -66,7 +66,7 @@ That is all: there is nothing else to install.
 You can also run it straight from GitHub, without going through npm:
 
 ```bash
-npx github:fredarcito/tokenscope
+npx github:fredarcito/tokenglass
 ```
 
 ## First run
@@ -92,13 +92,13 @@ Replace the path with the folder where you cloned the project.
 **Mac and Linux** (add the line to `~/.zshrc` or `~/.bashrc`, then open a new terminal):
 
 ```
-alias claude-tokens='npm --prefix "$HOME/tokenscope" start'
+alias claude-tokens='npm --prefix "$HOME/tokenglass" start'
 ```
 
 **Windows (PowerShell)**. Open your profile with `notepad $PROFILE` (if it does not exist, create it first with `New-Item -Path $PROFILE -Force`) and add:
 
 ```
-function claude-tokens { npm --prefix "$HOME\tokenscope" start }
+function claude-tokens { npm --prefix "$HOME\tokenglass" start }
 ```
 
 Open a new PowerShell window and type `claude-tokens`.
