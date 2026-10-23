@@ -1,10 +1,17 @@
 [Read in English](README.md)
 
-# Dashboard de tokens de Claude Code
+# TokenScope · Dashboard de tokens de Claude Code
 
-Una herramienta pequeña y de código abierto que muestra **a dónde van tus tokens de Claude Code** y señala los hábitos que los malgastan: sesiones demasiado largas, cachés perdidas tras una pausa, resultados de herramientas enormes, un modelo caro usado para tareas simples y el uso de subagentes.
+[![Licencia: MIT](https://img.shields.io/badge/licencia-MIT-blue.svg)](LICENSE)
+[![Node.js](https://img.shields.io/badge/node-%E2%89%A518-3c873a.svg)](https://nodejs.org)
+[![Sin dependencias](https://img.shields.io/badge/dependencias-0-brightgreen.svg)](package.json)
+[![100% local](https://img.shields.io/badge/datos-100%25%20local-4f46e5.svg)](#qué-hace-y-qué-no-hace-con-tus-datos)
+
+**TokenScope** es un dashboard local, sin dependencias y de código abierto que muestra **a dónde van tus tokens de Claude Code** y señala los hábitos que los malgastan: sesiones demasiado largas, cachés perdidas tras una pausa, resultados de herramientas enormes, un modelo caro usado para tareas simples y el uso de subagentes.
 
 Lee los archivos que Claude Code ya guarda en tu ordenador y sirve un dashboard en tu propia máquina. **Nada sale de tu ordenador.** No hay cuenta, ni subida de datos, ni telemetría.
+
+> ¿Para qué sirve? Para responder en un minuto a preguntas como *«¿qué proyecto me está consumiendo el límite?»*, *«¿por qué esta sesión gastó 2 millones de tokens?»* o *«¿qué hago distinto para gastar menos?»*.
 
 ## Qué hace
 
@@ -13,7 +20,17 @@ Lee los archivos que Claude Code ya guarda en tu ordenador y sirve un dashboard 
 - Duración activa que no cuenta las pausas largas, el lapso total de cada sesión y una línea base del contexto habitual de una sesión nueva.
 - Diagnósticos con un impacto estimado en tokens y un consejo concreto para cada uno, además de tus 3 errores más frecuentes.
 - Un historial guardado, para que las estadísticas sobrevivan cuando Claude Code borre las sesiones antiguas.
-- Modo claro y oscuro, español e inglés, y funciona en móviles y ventanas pequeñas.
+- Exportación del resumen a JSON o PNG, modo claro y oscuro, español e inglés, y funciona en móviles y ventanas pequeñas.
+
+## Las tres vistas
+
+| Vista | Qué encontrarás |
+| --- | --- |
+| **Resumen** | Totales y KPIs del periodo, tokens por día, reparto por modelo, tendencia y tus 3 errores más frecuentes. |
+| **Sesiones** | Ranking por tokens ponderados, búsqueda por tarea y detalle de cada sesión con el contexto turno a turno. |
+| **Diagnósticos** | Todos los problemas detectados, ordenados por impacto, con un consejo concreto para cada uno. |
+
+Filtra por rango (últimos 7 días, 30 días o todo), por fechas y por proyecto, y cambia entre medir **tokens** o **tokens ponderados** (una aproximación al precio relativo: la lectura de caché cuenta mucho menos y la salida cuenta más).
 
 ## Requisitos
 
@@ -23,16 +40,18 @@ Lee los archivos que Claude Code ya guarda en tu ordenador y sirve un dashboard 
 
 ## Instalación
 
-```
-git clone <repo> && cd <carpeta> && npm start
+```bash
+git clone https://github.com/fredarcito/tokenscope.git
+cd tokenscope
+npm start
 ```
 
-Eso es todo. Sustituye `<repo>` por la URL del repositorio y `<carpeta>` por el nombre de la carpeta que crea git.
+Eso es todo: no hay que instalar nada más.
 
 También puedes ejecutarlo sin clonar:
 
-```
-npx github:<usuario>/<repo>
+```bash
+npx github:fredarcito/tokenscope
 ```
 
 ## Primer uso
@@ -41,12 +60,12 @@ Usa estos tres comandos, en este orden, la primera vez:
 
 ```
 npm run example
-npm run check
+npm run parser-check
 npm start
 ```
 
 1. **`npm run example`** abre el dashboard con datos inventados, para que veas cómo es todo antes de tocar tus propios archivos.
-2. **`npm run check`** lee tus archivos reales de Claude Code e imprime un informe que te dice si la herramienta los entiende. El formato de los archivos de Claude Code no está documentado oficialmente y puede cambiar entre versiones, así que conviene hacerlo una vez. El informe solo contiene recuentos y nombres de campos, por lo que puedes pegarlo en un issue.
+2. **`npm run parser-check`** lee tus archivos reales de Claude Code e imprime un informe que te dice si la herramienta los entiende. El formato de los archivos de Claude Code no está documentado oficialmente y puede cambiar entre versiones, así que conviene hacerlo una vez. El informe solo contiene recuentos y nombres de campos, por lo que puedes pegarlo en un issue.
 3. **`npm start`** abre el dashboard con tus propios datos.
 
 Todo lo que muestra el dashboard se vuelve a leer cada vez que recargas la página.
@@ -58,13 +77,13 @@ Sustituye la ruta por la carpeta donde clonaste el proyecto.
 **Mac y Linux** (añade la línea a `~/.zshrc` o `~/.bashrc` y abre una terminal nueva):
 
 ```
-alias claude-tokens='npm --prefix "$HOME/claude-token-dashboard" start'
+alias claude-tokens='npm --prefix "$HOME/tokenscope" start'
 ```
 
 **Windows (PowerShell)**. Abre tu perfil con `notepad $PROFILE` (si no existe, créalo antes con `New-Item -Path $PROFILE -Force`) y añade:
 
 ```
-function claude-tokens { npm --prefix "$HOME\claude-token-dashboard" start }
+function claude-tokens { npm --prefix "$HOME\tokenscope" start }
 ```
 
 Abre una ventana nueva de PowerShell y escribe `claude-tokens`.
@@ -156,7 +175,7 @@ Normalmente solo necesitas los tres comandos de npm de arriba. Ellos llaman a `b
 | `--no-open` | No abre el navegador automáticamente. |
 | `--help`, `--version` | Muestra la ayuda o la versión. |
 
-Pasa los argumentos a través de npm después de `--`, por ejemplo `npm run check -- --lang en`, o llama al archivo directamente: `node bin/cli.js --data ./mi-copia`.
+Pasa los argumentos a través de npm después de `--`, por ejemplo `npm run parser-check -- --lang en`, o llama al archivo directamente: `node bin/cli.js --data ./mi-copia`.
 
 Variables de entorno:
 
@@ -170,7 +189,7 @@ De dónde se leen los datos por defecto: `~/.claude/projects` en Mac y Linux, `%
 
 Idioma de la terminal: `--lang`, después `"lang"` en `config.json`, después el idioma de tu sistema (`LC_ALL`, `LC_MESSAGES`, `LANG` o la configuración regional del sistema). Idioma del dashboard: tu última elección (guardada en el navegador), después `"lang"` en `config.json`, después el idioma del navegador (español si empieza por `es`, inglés en cualquier otro caso).
 
-Si el formato de los archivos de Claude Code cambia, `npm run check` te dice qué función de `src/parser.js` hay que revisar.
+Si el formato de los archivos de Claude Code cambia, `npm run parser-check` te dice qué función de `src/parser.js` hay que revisar.
 
 ### Estructura del proyecto
 
@@ -183,7 +202,7 @@ src/diagnostics.js  detecta los problemas
 src/history.js      historial guardado
 src/data.js         construye los datos que recibe el dashboard
 src/config.js       umbrales por defecto, rutas y protección de rutas
-src/check.js        npm run check
+src/check.js        npm run parser-check
 src/i18n/           traducciones (en.json, es.json) y utilidades
 public/index.html   el dashboard (con CSS y JS dentro)
 example/            archivos .jsonl inventados
@@ -201,11 +220,11 @@ El dashboard muestra un botón por cada idioma y la terminal lo detecta a partir
 
 Los issues y pull requests son bienvenidos.
 
-- Ejecuta `npm run example` y `npm run check -- --data example` antes de abrir un pull request.
+- Ejecuta `npm run example` y `npm run parser-check -- --data example` antes de abrir un pull request.
 - Mantén el proyecto sin dependencias de npm.
 - Todo texto visible debe existir en `src/i18n/en.json` y en `src/i18n/es.json` con las mismas claves. Nunca escribas texto para el usuario directamente en el código.
 - Nunca añadas transcripciones reales al repositorio. Amplía los archivos de `example/` con datos inventados.
-- Si Claude Code cambia su formato de archivos, abre un issue con la salida de `npm run check` (es seguro compartirla).
+- Si Claude Code cambia su formato de archivos, abre un issue con la salida de `npm run parser-check` (es seguro compartirla).
 
 ## Licencia
 

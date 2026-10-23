@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node bin/cli.js",
     "example": "node bin/cli.js --example",
-    "check": "node bin/cli.js --check",
+    "parser-check": "node bin/cli.js --check",
     "verify": "node scripts/verify.js"
   },
   "engines": {
